@@ -1,0 +1,11 @@
+2019/01/04(金)
+21:24    user1    aaaa
+21:24    user2    cccc
+
+2019/01/05(土)
+21:25    user2    abcd
+
+2019/01/06(日)
+09:30    user1    aaaaa
+09:55    user2    clfea
+10:30    user1    owiuo

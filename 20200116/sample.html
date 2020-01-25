@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <title>クリックアプリ</title>
+</head>
+<body>
+
+  <p>家事をして<br><span style="background: linear-gradient(transparent 50%, tomato 70%);"id="Output">0</span>円<br>貯金しました</p>
+
+  <img class="js-image-insertarea" src="">
+
+  <input class="js-trigger-button" type="button" value="貯金する">
+
+  <p id="temporaryBox" style="display: none;">
+    おめでとうございます！
+    貯金をこれから増やしてちょんまげ<br />
+  </p>
+
+  <script type="text/javascript">
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    ( function() {
+      var Count = 0;
+      if(isNaN(localStorage.getItem('kingaku'))){ 
+        var count = localStorage.getItem('kingaku');
+        count = isNaN(count) ? 0 : number(count);
+      }
+      else{
+        Count = parseInt(localStorage.getItem('kingaku'),10);
+        //localStorageから読んだ値を文字列→整数変換
+      }
+
+      var outputElement = document.getElementById("Output")
+      outputElement.textContent = Count;
+      //起動時のCount値の表示
+
+      var imageElement = document.querySelector('.js-image-insertarea')
+
+      function CountUp() {
+        if(getRandomInt(100) < 11) {
+          Count += 200; 
+        }
+        Count += 100;
+        localStorage.setItem('kingaku',Count);
+        //現在のカウント値をlocalStorageに保存する（文字列で保存される）
+        outputElement.textContent = Count;
+        if(Count > 2000){
+          outputElement.style.backgroundColor = 'red';
+        }
+        if(Count > 4000){
+          outputElement.style.backgroundColor = 'yellow';
+        }
+      }
+
+      function getImage() {
+        var image = new Array("./image1.png","./image2.png","./image3.png");
+        var randomNum = (Math.floor(Math.random() * 3) );
+
+        imageElement.src = image[ randomNum ]
+      }
+
+      function onClickTriggerButton() {
+        CountUp(); getImage();
+      }
+
+      var timerId;
+      //ボックスを表示して、タイめーを開始
+      function showBox() {
+        document.getElementById("temporaryBox").style.display = "block"; //ボックスを表示
+      }
+
+      //ボックスを消して、タイめーを終了
+      function closeBox() {
+        document.getElementById("temporaryBox").style.display = "none";
+        clearTimeout(timerId);
+        document.getElementById("btnShowBox").disabled = false;
+        document.getElementById("btnKeepBox").disabled = false;
+      }
+
+      document.querySelector('.js-trigger-button').addEventListener('click', onClickTriggerButton)
+    })()
+    </script>
+</body>
+</html>

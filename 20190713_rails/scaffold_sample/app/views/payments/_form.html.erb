@@ -1,0 +1,11 @@
+<%= form_with model: @payment, local: true do |form| %>
+
+  <%= form.label :item,  'アイテム' %>
+  <%= form.text_field :item %>
+  <%= form.label :price,  '支払い' %>
+  <%= form.text_field :price %>
+  <%= form.label :category,  '分類' %>
+  <%= form.text_field :category %>
+  <%= form.submit %>
+
+<% end %>

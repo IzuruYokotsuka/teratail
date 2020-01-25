@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @product.code %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+
+<h3>  商品情報</h3>
+<div class="actions">
+  <p>
+  <table>
+    <tr>
+      <%= label :product, :ID %>
+      <th><%= @product.id %></th>
+    </tr>
+    <tr>
+      <%= label :product, :商品コード %>
+      <th><%= @product.code %></th>
+    </tr>
+    <tr>
+      <%= label :product, :商品名 %>
+      <th><%= @product.name %></th>
+    </tr>
+  </table>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

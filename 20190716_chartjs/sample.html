@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My chart</title>
+</head>
+<body>
+<canvas id="my_chart">
+    Canvas not supported.
+</canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script>
+  (function () {
+    'use strict';
+
+    let type = 'bar';
+    let data = {
+      labels: ['A', 'B', 'C', 'D'],
+      datasets: [{
+        data: [200, 340, 160, 280]
+      }]
+    };
+    let options = {
+      scales: {
+        yAxes: [
+          // {
+          //   position: "left",
+          //   ticks: {
+          //     display: false
+          //   },
+          //   gridLines: {
+          //     lineWidth: 5,
+          //     color: "black",
+          //     display: false,
+          //     drawTicks: false
+          //   }
+          // },
+          // {
+          //   position: "right",
+          //   ticks: {
+          //     display: false
+          //   },
+          //   gridLines: {
+          //     lineWidth: 5,
+          //     color: "black",
+          //     display: false,
+          //     drawTicks: false
+          //   }
+          // },
+          {
+            position: "left",
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 400,
+              stepSize: 100,
+              fontSize: 20,
+              callback: function (value, index, values) {
+                return value + '  ';
+              }
+            },
+            gridLines: {
+              lineWidth: 5,
+              drawTicks: false,
+            },
+          },
+        ],
+        xAxes: [{
+          ticks: {
+            fontSize: 20,
+          },
+          gridLines: {
+            display: false,
+            drawTicks: false,
+          },
+        }]
+      },
+      title: {
+        display: true,
+        text: 'hogehoge',
+        fontSize: 18,
+        position: 'left'
+      },
+      legend: {
+        display: false
+      }
+
+    };
+
+    let ctx = document.getElementById('my_chart').getContext('2d');
+
+    let myChart = new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
+    });
+
+  })();
+</script>
+</body>
+</html>
