@@ -1,0 +1,111 @@
+<style>
+    .first_shutter{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9997;
+        animation: op 2s linear forwards;
+    }
+
+    .second_shutter{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9998;
+        animation: op2 3s linear 0.8s forwards;
+    }
+
+    .third_shutter{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        animation: op3 2.5s linear 3s forwards;
+    }
+
+    @keyframes op{
+        0%{
+            top: 150%;
+            left: -50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+        }
+        40%{
+            top: -50%;
+            left: -100%;
+            right: -50%;
+            width: 300%;
+            height: 300%;
+            border-radius: 50%;
+            background-color: yellowgreen;
+        }
+        99%{
+            background-color: yellowgreen;
+        }
+        100%{
+            display: none;
+        }
+    }
+
+    @keyframes op2{
+        0%{
+            top: 150%;
+            left: 150%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+        }
+        40%{
+            top: -50%;
+            left: -50%;
+            width: 300%;
+            height: 300%;
+            border-radius: 50%;
+            background-color: rgb(154, 118, 240);
+        }
+        99%{
+            background-color: rgb(154, 118, 240);
+        }
+        100%{
+            display: none;
+        }
+    }
+
+    @keyframes op3{
+        0%{
+            top: 150%;
+            left: 150%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+        }
+        40%{
+            top: -50%;
+            left: -50%;
+            width: 300%;
+            height: 300%;
+            border-radius: 50%;
+            background-color: white;
+        }
+        99%{
+            background-color: white;
+        }
+        100%{
+            display: none;
+        }
+    }
+</style>
+
+
+<div class="shutter">
+    <div class="first_shutter"></div>
+    <div class="second_shutter"></div>
+    <div class="third_shutter"></div>
+</div>
